@@ -2,7 +2,7 @@ projekt
     ├── docs
     │   ├── guide.txt
     │   └── README.md
-    ├── .env.swp
+    ├── .env
     ├── .gitignore
     ├── src
     │   ├── .config
