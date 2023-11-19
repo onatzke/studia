@@ -1,5 +1,4 @@
 #include <stdio.h> 
-
 int liczba1, liczba2;
 
 int main() { 
