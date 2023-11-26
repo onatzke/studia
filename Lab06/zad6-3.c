@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int liczby(int n)
+void liczby(int n)
 {
     if (n > 0) {
         liczby (n-1);
