@@ -39,7 +39,7 @@ int main() {
 
     fclose(plik);
 
-    printf ("Podzial plikow zakonczony");
+    prostokat(znak, czy_pusty, wys, szer);
 
     return 0;
 
