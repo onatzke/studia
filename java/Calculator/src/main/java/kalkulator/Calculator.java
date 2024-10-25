@@ -64,7 +64,7 @@ public class Calculator {
         }
     }
     // Jeśli wynik przekroczy zakres wartości typu int, Math.addExact zgłasza wyjątek ArithmeticException,
-    // wtedy program przechodzi do bloku catch, gdzie wykonywana jest obsługa błędu,
+    // wtedy program przechodzi do bloku catch, wyświetla komunikat o błędzie,
     // a bieżaca wartość state nie zmienia się
 
 
