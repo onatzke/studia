@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Calculator {
 
     private int state = 0;
-    private Integer memory = null;  // Wartość przechowywana w pamięci kalkulatora, początkowo pusta
+    private Integer memory = null;  
 
     public int getState() {
         return state;
@@ -20,7 +20,7 @@ public class Calculator {
 
 
 
-    // operacje na pamięci
+    // Operacje na pamięci
     public void saveToMemory() {
         memory = state;
         System.out.println("Zapisano w pamięci: " + memory);
@@ -31,7 +31,7 @@ public class Calculator {
         System.out.println("Wyczyszczono pamięć");
     }
 
-    // Wykonuje operację na bieżącym wyniku z wartością z pamięci
+    // Wykonywanie operacji na bieżącym wyniku z wartością z pamięci
     public void operateMemory(String operation) {
         if (memory != null) {
             switch (operation) {
@@ -95,7 +95,7 @@ public class Calculator {
 
     // Konwersja na int: Integer.parseInt(...) próbuje przekonwertować wprowadzony
     // ciąg znaków na liczbę całkowitą typu int, jeśli mogą zostać
-    // przekonwertowane na int, metoda zwraca tę liczbę, przerywając pętlę
+    // przekonwertowane na int, zwraca tę liczbę, przerywając pętlę
     private static int getIntInput(Scanner scanner, String prompt) {
         while (true) {
             System.out.println(prompt);
