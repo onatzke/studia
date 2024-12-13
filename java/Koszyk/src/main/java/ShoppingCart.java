@@ -18,6 +18,16 @@ public class ShoppingCart {
         products[productCount++] = product;
     }
 
+    public void removeProduct(Product product) {
+        for (int i = 0; i < productCount; i++) {
+            if (products[i].equals(product)) { // Compare objects
+                System.arraycopy(products, i + 1, products, i, productCount - i - 1);
+                products[--productCount] = null; // Nullify the last element
+                break;
+            }
+        }
+    }
+
     public Product[] getProducts() {
         return Arrays.copyOf(products, productCount);
     }
@@ -66,7 +76,7 @@ public class ShoppingCart {
         return cheapest;
     }
 
-    public Product findCostliest() {
+    public Product findMostExpensive() {
         if (productCount == 0) return null;
 
         Product costliest = products[0];
@@ -84,20 +94,12 @@ public class ShoppingCart {
         return Arrays.copyOf(sorted, Math.min(n, sorted.length));
     }
 
-    public Product[] findMultipleCostliest(int n) {
+    public Product[] findMultipleMostExpensive(int n) {
         Product[] sorted = Arrays.copyOf(getProducts(), productCount);
         Arrays.sort(sorted, (p1, p2) -> Double.compare(p2.getPrice(), p1.getPrice()));
         return Arrays.copyOf(sorted, Math.min(n, sorted.length));
     }
-
-    //public void sortProducts(Comparator<Product> comparator) {
-        //Arrays.sort(products, 0, productCount, comparator);
-    //}
-
-    //public void sortProductsByPriceAndName() {
-        //sortProducts(new ProductComparator());
-    //}
-
+    
     public void sortProducts() {
         Arrays.sort(products, 0, productCount, new ProductComparator());
     }
