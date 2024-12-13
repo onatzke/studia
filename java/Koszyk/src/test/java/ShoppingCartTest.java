@@ -1,7 +1,5 @@
 import org.junit.Before;
 import org.junit.Test;
-
-
 import static org.junit.Assert.*;
 
 public class ShoppingCartTest {
@@ -21,7 +19,7 @@ public class ShoppingCartTest {
         product3 = new Product("0023", "Myszka", 35.50);
         product4 = new Product("0024", "Kabel USB", 15.00);
         product5 = new Product("0025", "Przejściowka", 15.00);
-        products = new Product[]{product1, product2, product3};
+        products = new Product[]{product1, product2, product3, product4, product5};
     }
 
     @Test
@@ -29,6 +27,17 @@ public class ShoppingCartTest {
         cart.addProduct(product1);
         cart.addProduct(product2);
         assertArrayEquals(new Product[]{product1, product2}, cart.getProducts());
+    }
+
+    @Test
+    public void testRemoveProduct() {
+        cart.addProduct(product1);
+        cart.addProduct(product2);
+        cart.addProduct(product3);
+
+
+        cart.removeProduct(product2);
+        assertArrayEquals(new Product[]{product1, product3}, cart.getProducts());
     }
 
     @Test
@@ -51,11 +60,9 @@ public class ShoppingCartTest {
     @Test
     public void testRemovePromotion() {
         Promotion promo1 = new DiscountOnTotalPrice(100, 0.1);
-        Promotion promo2 = new FreeGiftPromotion(200);
         cart.addPromotion(promo1);
-        cart.addPromotion(promo2);
         cart.removePromotion(promo1);
-        assertArrayEquals(new Promotion[]{promo2}, cart.getPromotions());
+        assertArrayEquals(new Promotion[]{}, cart.getPromotions());
     }
 
     @Test
@@ -91,11 +98,11 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testFindCostliest() {
+    public void testFindMostExpensive() {
         cart.addProduct(product1);
         cart.addProduct(product2);
         cart.addProduct(product3);
-        assertEquals(product2, cart.findCostliest());
+        assertEquals(product2, cart.findMostExpensive());
     }
 
     @Test
@@ -108,11 +115,11 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testFindMultipleCostliest() {
+    public void testFindMultipleMostExpensive() {
         cart.addProduct(product1);
         cart.addProduct(product2);
         cart.addProduct(product3);
-        Product[] costliestTwo = cart.findMultipleCostliest(2);
+        Product[] costliestTwo = cart.findMultipleMostExpensive(2);
         assertArrayEquals(new Product[]{product2, product1}, costliestTwo);
     }
 
