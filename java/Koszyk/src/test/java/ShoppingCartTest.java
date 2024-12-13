@@ -19,7 +19,6 @@ public class ShoppingCartTest {
         product3 = new Product("0023", "Myszka", 35.50);
         product4 = new Product("0024", "Kabel USB", 15.00);
         product5 = new Product("0025", "Przejściowka", 15.00);
-        products = new Product[]{product1, product2, product3, product4, product5};
     }
 
     @Test
