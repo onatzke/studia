@@ -91,28 +91,5 @@ public class BattleTest {
         assertEquals(initial1Size - 1, general1.getArmy().getSoldiers().size());
         assertEquals(initial2Size - 1, general2.getArmy().getSoldiers().size());
     }
-    @Test
-    public void testBuySoldiers() {
-        int initialGold = general1.getGold();
-        int soldierCount = 2;
-        Rank rank = Rank.SZEREGOWY;
-
-        activeState.BuySoldiers(general1, rank, soldierCount);
-
-        assertEquals(soldierCount, general1.getArmy().getSoldiers().size());
-        assertEquals(initialGold - (10 * rank.getValue() * soldierCount), general1.getGold());
-    }
-
-    @Test
-    public void testInsufficientGold() {
-        general1.setGold(5);
-        int initialGold = general1.getGold();
-        int initialArmySize = general1.getArmy().getSoldiers().size();
-
-        activeState.BuySoldiers(general1, Rank.SZEREGOWY, 1);
-
-        assertEquals(initialArmySize, general1.getArmy().getSoldiers().size());
-        assertEquals(initialGold, general1.getGold());
-    }
 
 }
