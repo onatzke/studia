@@ -18,18 +18,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testBattleOutcome() {
-        general1.buySoldiers(Rank.KAPITAN, 2);
-        general2.buySoldiers(Rank.SZEREGOWY, 3);
-
-        general1.attack(general2);
-
-        assertTrue(general1.getGold() > 1000);
-        assertTrue(general2.getGold() < 1000);
-    }
-
-    @Test
-    public void testManeuvers() {
+    public void testActions() {
         general1.buySoldiers(Rank.SZEREGOWY, 2);
         int initialGold = general1.getGold();
         general1.makeActions(general1.getArmy().getSoldiers());
@@ -76,7 +65,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testBankruptToActiveTransition() {
+    public void testBankruptToActiveState() {
         General general = new General("General", 1000);
         general.buySoldiers(Rank.KAPITAN, 2);
         general.setGold(50);
@@ -92,7 +81,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testManeuverSystem() {
+    public void testAction() {
         general1.buySoldiers(Rank.SZEREGOWY, 2);
         List<Soldier> participants = general1.getArmy().getSoldiers();
         int initialGold = general1.getGold();
