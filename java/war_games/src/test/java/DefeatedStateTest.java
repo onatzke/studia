@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 public class DefeatedStateTest {
     @Test
     public void testDefeatedState() {
-        General general = new General("Defeated", 1000);
+        General general = new General("Pokonany", 1000);
         general.setState(new BankruptState());
         general.buySoldiers(Rank.SZEREGOWY, 1);
 
