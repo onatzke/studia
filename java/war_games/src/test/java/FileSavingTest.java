@@ -25,14 +25,14 @@ public class FileSavingTest {
     }
 
     @Test
-    public void testSingleFileCreation() {
+    public void testFileCreation() {
         general1.buySoldiers(Rank.SZEREGOWY, 1);
         File reportFile = new File(folder_raportu + raport);
         assertTrue("Plik raportów powinien istnieć", reportFile.exists());
     }
 
     @Test
-    public void testMultipleReportsInSingleFile() throws IOException {
+    public void testMultipleReportsInFile() throws IOException {
         general1.buySoldiers(Rank.SZEREGOWY, 1);
         general1.makeActions(general1.getArmy().getSoldiers());
         general1.attack(general2);
